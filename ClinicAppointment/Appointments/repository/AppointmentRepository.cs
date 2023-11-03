@@ -23,7 +23,6 @@ namespace ClinicAppointment.Appointments.repository
         }
         public AppointmentRepository(string connectionString)
         {
-            this.dataAccess = new DataAccess();
             this.connectionString =connectionString;
         }
 

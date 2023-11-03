@@ -189,6 +189,14 @@
     <Compile Include="Role\UserRole.cs" />
     <Compile Include="UserAppointments\model\IUserAppointmentBuilder.cs" />
     <Compile Include="UserAppointments\model\UserAppointment.cs" />
+    <Compile Include="UserAppointments\repository\interfaces\IUserAppointmentRepository.cs" />
+    <Compile Include="UserAppointments\repository\UserAppointmentRepository.cs" />
+    <Compile Include="UserAppointments\service\interfaces\IUserAppointmentCommandService.cs" />
+    <Compile Include="UserAppointments\service\interfaces\IUserAppointmentQueryService.cs" />
+    <Compile Include="UserAppointments\service\singleton\UserAppointmentComanndServiceSingleton.cs" />
+    <Compile Include="UserAppointments\service\singleton\UserAppointmentQueryServiceSingleton.cs" />
+    <Compile Include="UserAppointments\service\UserAppointmentCommandService.cs" />
+    <Compile Include="UserAppointments\service\UserAppointmentQueryService.cs" />
     <Compile Include="Users\model\IUserBuilder.cs" />
     <Compile Include="Users\model\User.cs" />
     <Compile Include="Users\model\UserType.cs" />
@@ -225,9 +233,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="UserAppointments\repository\" />
-    <Folder Include="UserAppointments\service\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
