@@ -177,11 +177,50 @@
     <Compile Include="data\IDataAccess.cs" />
     <Compile Include="exceptions\ItemDejaExistentException.cs" />
     <Compile Include="exceptions\ItemInexistentException.cs" />
-    <Compile Include="forms\Form1.cs">
+    <Compile Include="forms\FrmHome.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="forms\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="forms\FrmHome.Designer.cs">
+      <DependentUpon>FrmHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\FrmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\FrmMain.Designer.cs">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="mockups\MockupLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="mockups\MockupLogin.Designer.cs">
+      <DependentUpon>MockupLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="mockups\MockupMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="mockups\MockupMain.Designer.cs">
+      <DependentUpon>MockupMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="mockups\MockupRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="mockups\MockupRegister.Designer.cs">
+      <DependentUpon>MockupRegister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="panels\PnlAside.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="panels\PnlHeader.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="panels\PnlHome.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="panels\PnlLogIn.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="panels\PnlRegister.cs">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -209,6 +248,21 @@
     <Compile Include="Users\service\UserCommandService.cs" />
     <Compile Include="Users\service\UserQueryService.cs" />
     <Compile Include="System\utils\Constants.cs" />
+    <EmbeddedResource Include="forms\FrmHome.resx">
+      <DependentUpon>FrmHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\FrmMain.resx">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="mockups\MockupLogin.resx">
+      <DependentUpon>MockupLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="mockups\MockupMain.resx">
+      <DependentUpon>MockupMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="mockups\MockupRegister.resx">
+      <DependentUpon>MockupRegister.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -217,6 +271,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="appsettings.json" />
     <None Include="packages.config" />

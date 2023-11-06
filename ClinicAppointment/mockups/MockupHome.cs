@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ClinicAppointment
+namespace ClinicAppointment.mockups
 {
-    public partial class Form1 : Form
+    public partial class MockupHome : Form
     {
-        public Form1()
+        public MockupHome()
         {
             InitializeComponent();
         }

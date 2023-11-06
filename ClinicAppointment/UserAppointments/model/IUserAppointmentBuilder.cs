@@ -8,6 +8,9 @@ namespace ClinicAppointment.UserAppointments.model
 {
     public interface IUserAppointmentBuilder
     {
-
+        UserAppointment Id(int id);
+        UserAppointment PatientId(int patientId);
+        UserAppointment DoctorId(int doctorId);
+        UserAppointment AppointmentId(int ppointmentId);
     }
 }

@@ -78,11 +78,6 @@ namespace ClinicAppointment.UserAppointments.model
             return this;
         }
 
-        public static UserAppointment BuildAppointment()
-        {
-            return new UserAppointment();
-        }
-
         #endregion
 
         #region PUBLIC_METHODS
@@ -111,6 +106,11 @@ namespace ClinicAppointment.UserAppointments.model
         public UserAppointment Clone()
         {
             return new UserAppointment(this);
+        }
+
+        public static UserAppointment BuildUserAppointment()
+        {
+            return new UserAppointment();
         }
         #endregion
     }

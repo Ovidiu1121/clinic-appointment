@@ -117,6 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
- 
+  <data name="label8.Text" xml:space="preserve">
+    <value>Indiferent de specialitate, la MedLife vei găsi oricând medici buni de care ai nevoie. Experimentați, parte din cea mai mare platformă 
+de diagnostic și tratament din România și ajutați de cele mai noi tehnologii, ei nu uită nicio clipă să fie în primul rând OAMENI.
+Știu să se apropie de pacienți, să-i trateze cu empatie, atenție, răbdare și calm. Inspiră încredere, explică în detaliu, cu exemple și 
+cuvinte ușor de înțeles. Și asta pentru că talentului, vocației, experienței și abilităților, ei alătură ceva esențial: iubirea față de
+ oameni și fericirea lor, care-i inspiră și le dă satisfacția misiunii împlinite cu succes la finalul fiecărei zile.
+Oricât de complicat ar fi prezentul, oamenii găsesc mereu motive să fie fericiți. La MedLife ne place să-i vedem astfel, fericirea
+ lor ne bucură, ne inspiră, ne dă motivație pentru ca soluțiile medicale pe care le oferim să fie la cele mai înalte standarde.</value>
+  </data>
 </root>

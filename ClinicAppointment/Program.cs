@@ -1,6 +1,9 @@
 ﻿using ClinicAppointment.Appointments.model;
 using ClinicAppointment.Appointments.repository;
 using ClinicAppointment.Appointments.repository.interfaces;
+using ClinicAppointment.Appointments.service;
+using ClinicAppointment.Appointments.service.interfaces;
+using ClinicAppointment.forms;
 using ClinicAppointment.UserAppointments.model;
 using ClinicAppointment.UserAppointments.repository;
 using ClinicAppointment.UserAppointments.repository.interfaces;
@@ -27,20 +30,23 @@ namespace ClinicAppointment
         [STAThread]
         static void Main()
         {
-            //Application.EnableVisualStyles();
-            //Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new Form1());
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new FrmMain());
 
-           IUserAppointmentCommandService a=new UserAppointmentCommandService();
+            //IAppointmentCommandService a=new AppointmentCommandService();
 
-            UserAppointment x = UserAppointment.BuildAppointment()
-                .Id(1)
-                .PatientId(2)
-                .DoctorId(2)
-                .AppointmentId(5);
+            //IAppointmentQueryService b = new AppointmentQueryService();
 
+            // Appointment appointment = Appointment.BuildAppointment()
 
-            a.Remove(8);
+            //    .Id(1)
+            //    .StartDate(new DateTime(2022,2,12))
+            //    .EndDate(new DateTime(2022, 2, 16));
+
+            // a.Remove(7);
+            // //b.GetAllAppointments().ForEach(Console.WriteLine);
+
 
 
 
