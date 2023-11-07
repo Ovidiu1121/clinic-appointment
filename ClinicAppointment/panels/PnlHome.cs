@@ -18,7 +18,7 @@ namespace ClinicAppointment.panels
         public PnlHome(FrmMain frmMain)
         {
             this.frmMain = frmMain;
-            this.Size=new Size(1168, 693);
+            this.Size=new Size(1180, 693);
             this.BackColor=Color.LightSteelBlue;
             this.Location=new Point(206, 45);
 

@@ -15,7 +15,7 @@ namespace ClinicAppointment.forms
     {
         private Panel pnlheader;
         private Panel pnlaside;
-        private Panel activepanel;
+        public Panel activepanel;
 
         public FrmMain()
         {
@@ -29,7 +29,7 @@ namespace ClinicAppointment.forms
             this.pnlaside=new PnlAside(this);
             this.Controls.Add(this.pnlaside);
 
-            this.activepanel=new PnlHome(this);
+            this.activepanel=new PnlDisplayDoctors();
             this.Controls.Add(this.activepanel);
 
         }

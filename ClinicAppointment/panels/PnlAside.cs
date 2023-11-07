@@ -32,6 +32,7 @@ namespace ClinicAppointment.panels
             this.btnhome.TextAlign=ContentAlignment.MiddleCenter;
             this.btnhome.Font=new Font("Arial", 12, FontStyle.Bold);
             this.btnhome.ForeColor=Color.White;
+            this.btnhome.Click+=new EventHandler(this.home_Click);
 
             this.btndoctors=new Button();
             this.Controls.Add(this.btndoctors);
@@ -43,8 +44,23 @@ namespace ClinicAppointment.panels
             this.btndoctors.TextAlign=ContentAlignment.MiddleCenter;
             this.btndoctors.Font=new Font("Arial", 12, FontStyle.Bold);
             this.btndoctors.ForeColor=Color.White;
+            this.btndoctors.Click+=new EventHandler(this.show_doctors_Click);
 
 
+        }
+
+        public void home_Click(object sender,EventArgs e)
+        {
+            this.frmMain.Controls.Remove(this.frmMain.activepanel);
+            this.frmMain.activepanel=new PnlHome(this.frmMain);
+            this.frmMain.Controls.Add(this.frmMain.activepanel);
+        }
+
+        public void show_doctors_Click(object sender,EventArgs e)
+        {
+            this.frmMain.Controls.Remove(this.frmMain.activepanel);
+            this.frmMain.activepanel=new PnlDisplayDoctors();
+            this.frmMain.Controls.Add(this.frmMain.activepanel);
         }
 
     }
