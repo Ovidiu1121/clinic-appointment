@@ -1,4 +1,5 @@
 ﻿using ClinicAppointment.panels;
+using ClinicAppointment.Users.model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,10 +17,13 @@ namespace ClinicAppointment.forms
         private Panel pnlheader;
         private Panel pnlaside;
         public Panel activepanel;
+        public User userlogat;
 
-        public FrmMain()
+        public FrmMain(User user)
         {
             InitializeComponent();
+
+            this.userlogat = user;
 
             this.Size=new Size(1393, 700);
 
@@ -29,7 +33,7 @@ namespace ClinicAppointment.forms
             this.pnlaside=new PnlAside(this);
             this.Controls.Add(this.pnlaside);
 
-            this.activepanel=new PnlDisplayDoctors();
+            this.activepanel=new PnlDisplayDoctors(this,user);
             this.Controls.Add(this.activepanel);
 
         }

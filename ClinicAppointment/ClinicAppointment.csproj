@@ -189,6 +189,12 @@
     <Compile Include="forms\FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="mockups\MockupAddAppointment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="mockups\MockupAddAppointment.Designer.cs">
+      <DependentUpon>MockupAddAppointment.cs</DependentUpon>
+    </Compile>
     <Compile Include="mockups\MockupDoctorsPage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -212,6 +218,9 @@
     </Compile>
     <Compile Include="mockups\MockupRegister.Designer.cs">
       <DependentUpon>MockupRegister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="panels\PnlAddAppointment.cs">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="panels\PnlAside.cs">
       <SubType>Component</SubType>
@@ -265,6 +274,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="forms\FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="mockups\MockupAddAppointment.resx">
+      <DependentUpon>MockupAddAppointment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="mockups\MockupDoctorsPage.resx">
       <DependentUpon>MockupDoctorsPage.cs</DependentUpon>

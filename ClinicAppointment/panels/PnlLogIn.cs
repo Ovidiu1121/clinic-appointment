@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace ClinicAppointment.panels
 {
     internal class PnlLogIn : Panel
@@ -91,20 +92,23 @@ namespace ClinicAppointment.panels
                 List<User>lista=query.GetAllUsers();
 
                 bool flag = false;
+                User user=null;
 
                 foreach(User u in lista)
                 {
                     if (u.GetName().Equals(this.txtnume.Text)&&u.GetPassword().Equals(this.txtparola.Text))
                     {
                         flag=true;
+                        user=u;
                     }
                 }
 
                 if (flag==true)
                 {
-                    this.frmHome.Controls.Remove(this.frmHome.activepanel);
-                    this.frmHome.activepanel=new PnlLogIn(this.frmHome);
-                    this.frmHome.Controls.Add(this.frmHome.activepanel);
+                    this.Hide();
+                    FrmMain frmMain = new FrmMain(user);
+                    frmMain.Closed+=(s, args) => this.frmHome.Close();
+                    frmMain.Show();
                 }
                 else
                 {

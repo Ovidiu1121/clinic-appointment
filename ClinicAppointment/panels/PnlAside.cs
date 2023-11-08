@@ -59,7 +59,7 @@ namespace ClinicAppointment.panels
         public void show_doctors_Click(object sender,EventArgs e)
         {
             this.frmMain.Controls.Remove(this.frmMain.activepanel);
-            this.frmMain.activepanel=new PnlDisplayDoctors();
+            this.frmMain.activepanel=new PnlDisplayDoctors(this.frmMain,this.frmMain.userlogat);
             this.frmMain.Controls.Add(this.frmMain.activepanel);
         }
 

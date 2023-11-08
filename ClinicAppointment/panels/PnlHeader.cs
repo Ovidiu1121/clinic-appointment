@@ -44,8 +44,8 @@ namespace ClinicAppointment.panels
 
             this.lbldata=new Label();
             this.Controls.Add(this.lbldata);
-            this.lbldata.Location=new Point(1155, 28);
-            this.lbldata.Size=new Size(220, 25);
+            this.lbldata.Location=new Point(1130, 28);
+            this.lbldata.Size=new Size(250, 25);
             this.lbldata.Font=new Font("Arial", 12, FontStyle.Bold);
             this.lbldata.ForeColor=Color.White;
 

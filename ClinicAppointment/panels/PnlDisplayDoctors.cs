@@ -1,4 +1,5 @@
-﻿using ClinicAppointment.Users.model;
+﻿using ClinicAppointment.forms;
+using ClinicAppointment.Users.model;
 using ClinicAppointment.Users.service;
 using ClinicAppointment.Users.service.interfaces;
 using System;
@@ -15,12 +16,17 @@ namespace ClinicAppointment.panels
     {
 
         private Panel pnlback;
+        private FrmMain frmMain;
+        private User userlogat;
 
-        public PnlDisplayDoctors()
+        public PnlDisplayDoctors(FrmMain frmMain,User userlogat)
         {
+            this.userlogat = userlogat;
+
             this.Size=new Size(1168, 693);
             this.Location=new Point(205, 10);
             this.BackColor=Color.White;
+            this.frmMain=frmMain;
 
             this.pnlback = new Panel();
             this.Controls.Add(this.pnlback);
@@ -37,13 +43,13 @@ namespace ClinicAppointment.panels
 
             IUserQueryService service = new UserQueryService();
 
-            List<User> users = service.GetAllUsers();
+            List<User> doctors = service.GetAllUsers();
 
-            users.ForEach(u =>
+            doctors.ForEach(doctor =>
             {
-                if (u.GetType().Equals(UserType.DOCTOR))
+                if (doctor.GetType().Equals(UserType.DOCTOR))
                 {
-                    PnlDoctorCard card = new PnlDoctorCard(u);
+                    PnlDoctorCard card = new PnlDoctorCard(doctor,this.frmMain,this.userlogat);
                     card.Location = new Point(x, y);
                     this.pnlback.Controls.Add(card);
 

@@ -19,7 +19,7 @@ namespace ClinicAppointment.panels
         {
             this.frmMain = frmMain;
             this.Size=new Size(1180, 693);
-            this.BackColor=Color.LightSteelBlue;
+            this.BackColor=Color.White;
             this.Location=new Point(206, 45);
 
             this.lbltitlu=new Label();
