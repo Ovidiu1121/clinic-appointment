@@ -10,6 +10,7 @@ namespace ClinicAppointment.Appointments.service.interfaces
     public interface IAppointmentQueryService
     {
         Appointment GetById(int id);
+        int GetLastId();
         List<Appointment> GetAllAppointments();
     }
 }

@@ -27,9 +27,12 @@ namespace ClinicAppointment.panels
         private Button btnregister;
         private Button btncancel;
         private FrmHome frmHome;
+        private IUserCommandService commandUser;
 
         public PnlRegister(FrmHome frmHome)
         {
+            this.commandUser=UserCommandServiceSingleton.Instance;
+
             this.frmHome = frmHome;
             this.Size=new Size(818, 497);
 
@@ -121,9 +124,7 @@ namespace ClinicAppointment.panels
                 .Password(this.txtpassword.Text.ToString())
                 .Phone(this.txtphone.Text.ToString());
 
-                IUserCommandService service = new UserCommandService();
-
-                service.Add(user);
+                commandUser.Add(user);
 
                 this.frmHome.Controls.Remove(this.frmHome.activepanel);
                 this.frmHome.activepanel=new PnlLogIn(this.frmHome);

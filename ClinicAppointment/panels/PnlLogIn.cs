@@ -2,6 +2,7 @@
 using ClinicAppointment.Users.model;
 using ClinicAppointment.Users.service;
 using ClinicAppointment.Users.service.interfaces;
+using ClinicAppointment.Users.service.singleton;
 using ClinicScheduler.exceptii;
 using System;
 using System.Collections.Generic;
@@ -24,9 +25,12 @@ namespace ClinicAppointment.panels
         private Button btnlogin;
         private Button btnregister;
         private FrmHome frmHome;
+        private IUserQueryService queryUser;
 
         public PnlLogIn(FrmHome frmHome)
         {
+            this.queryUser=UserQueryServiceSingleton.Instance;
+
             this.frmHome = frmHome;
             this.Size=new Size(818, 497);
 
@@ -87,9 +91,8 @@ namespace ClinicAppointment.panels
             }
             else
             {
-                IUserQueryService query=new UserQueryService();
 
-                List<User>lista=query.GetAllUsers();
+                List<User>lista= queryUser.GetAllUsers();
 
                 bool flag = false;
                 User user=null;

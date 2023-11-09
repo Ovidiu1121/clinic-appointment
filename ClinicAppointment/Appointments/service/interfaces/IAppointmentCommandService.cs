@@ -12,5 +12,6 @@ namespace ClinicAppointment.Appointments.service.interfaces
         void Add(Appointment appointment);
         void Remove(int id);
         void EditById(int id, Appointment appointment);
+       
     }
 }

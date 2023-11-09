@@ -1,13 +1,16 @@
 ﻿using ClinicAppointment.Appointments.model;
 using ClinicAppointment.Appointments.service;
 using ClinicAppointment.Appointments.service.interfaces;
+using ClinicAppointment.Appointments.service.singleton;
 using ClinicAppointment.forms;
 using ClinicAppointment.UserAppointments.model;
 using ClinicAppointment.UserAppointments.service;
 using ClinicAppointment.UserAppointments.service.interfaces;
+using ClinicAppointment.UserAppointments.service.singleton;
 using ClinicAppointment.Users.model;
 using ClinicAppointment.Users.service;
 using ClinicAppointment.Users.service.interfaces;
+using ClinicAppointment.Users.service.singleton;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -24,9 +27,16 @@ namespace ClinicAppointment.panels
         private DataGridView datagridview;
         private User user;
         private FrmMain frmMain;
+        private IUserAppointmentQueryService queryUserAppointment;
+        private IAppointmentQueryService queryAppointment;
+        private IUserQueryService queryUser;
 
         public PnlAppointments(User user, FrmMain frmMain)
         {
+            this.queryUserAppointment=UserAppointmentQueryServiceSingleton.Instance;
+            this.queryAppointment=AppointmentQueryServiceSingleton.Instance;
+            this.queryUser= UserQueryServiceSingleton.Instance;
+
             this.user = user;
             this.frmMain = frmMain;
 
@@ -53,18 +63,13 @@ namespace ClinicAppointment.panels
             table.Columns.Add("Start date", typeof(DateTime));
             table.Columns.Add("End date",typeof(DateTime));
 
-            IUserAppointmentQueryService query = new UserAppointmentQueryService();
-
-            List<UserAppointment> userAppointments = query.GetAllUserAppointments();
+            List<UserAppointment> userAppointments = queryUserAppointment.GetAllUserAppointments();
 
             userAppointments.ForEach(item =>
             {
                 if (item.GetPatientId().Equals(this.user.GetId()))
                 {
-                    IAppointmentQueryService queryApp = new AppointmentQueryService();
-                    IUserQueryService queryUser = new UserQueryService();
-
-                    Appointment appointment = queryApp.GetById(item.GetAppointmentId());
+                    Appointment appointment = queryAppointment.GetById(item.GetAppointmentId());
                     User user = queryUser.GetById(item.GetDoctorId());
 
                     table.Rows.Add(appointment.GetId(), user.GetName(), appointment.GetStartDate(), appointment.GetEndDate());

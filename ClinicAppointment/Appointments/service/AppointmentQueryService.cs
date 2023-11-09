@@ -49,5 +49,10 @@ namespace ClinicAppointment.Appointments.service
 
             return appointment;
         }
+
+        public int GetLastId()
+        {
+          return this.repository.GetLastId();
+        }
     }
 }
