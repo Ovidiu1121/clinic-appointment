@@ -13,6 +13,7 @@ namespace ClinicAppointment.panels
     {
         private Button btnhome;
         private Button btndoctors;
+        private Button btnappointments;
         private FrmMain frmMain;
         
         public PnlAside(FrmMain frmMain)
@@ -46,6 +47,17 @@ namespace ClinicAppointment.panels
             this.btndoctors.ForeColor=Color.White;
             this.btndoctors.Click+=new EventHandler(this.show_doctors_Click);
 
+            this.btnappointments=new Button();
+            this.Controls.Add(this.btnappointments);
+            this.btnappointments.Location=new Point(0, 180);
+            this.btnappointments.Size=new Size(206, 40);
+            this.btnappointments.Text="Appointments";
+            this.btnappointments.FlatAppearance.BorderSize=1;
+            this.btnappointments.FlatStyle=FlatStyle.Flat;
+            this.btnappointments.TextAlign=ContentAlignment.MiddleCenter;
+            this.btnappointments.Font=new Font("Arial", 12, FontStyle.Bold);
+            this.btnappointments.ForeColor=Color.White;
+            this.btnappointments.Click+=new EventHandler(this.appointments_Click);
 
         }
 
@@ -60,6 +72,13 @@ namespace ClinicAppointment.panels
         {
             this.frmMain.Controls.Remove(this.frmMain.activepanel);
             this.frmMain.activepanel=new PnlDisplayDoctors(this.frmMain,this.frmMain.userlogat);
+            this.frmMain.Controls.Add(this.frmMain.activepanel);
+        }
+
+        public void appointments_Click(object sender,EventArgs e)
+        {
+            this.frmMain.Controls.Remove(this.frmMain.activepanel);
+            this.frmMain.activepanel=new PnlAppointments(this.frmMain.userlogat,this.frmMain);
             this.frmMain.Controls.Add(this.frmMain.activepanel);
         }
 
