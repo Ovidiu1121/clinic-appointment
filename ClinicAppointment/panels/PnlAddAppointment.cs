@@ -3,10 +3,12 @@ using ClinicAppointment.Appointments.repository;
 using ClinicAppointment.Appointments.repository.interfaces;
 using ClinicAppointment.Appointments.service;
 using ClinicAppointment.Appointments.service.interfaces;
+using ClinicAppointment.Appointments.service.singleton;
 using ClinicAppointment.forms;
 using ClinicAppointment.UserAppointments.model;
 using ClinicAppointment.UserAppointments.service;
 using ClinicAppointment.UserAppointments.service.interfaces;
+using ClinicAppointment.UserAppointments.service.singleton;
 using ClinicAppointment.Users.model;
 using System;
 using System.Collections.Generic;
@@ -32,9 +34,17 @@ namespace ClinicAppointment.panels
         private Button btncancel;
         private User doctor;
         private FrmMain frmMain;
+        private IAppointmentCommandService commandAppointment;
+        private IAppointmentQueryService queryAppointment;
+        private IUserAppointmentCommandService commandUserAppointment;
+
 
         public PnlAddAppointment(User doctor, FrmMain frmMain)
         {
+            this.commandUserAppointment=UserAppointmentComanndServiceSingleton.Instance;
+            this.commandAppointment=AppointmentComanndServiceSingleton.Instance;
+            this.queryAppointment=AppointmentQueryServiceSingleton.Instance;
+
             this.doctor = doctor;
             this.frmMain = frmMain;
 
@@ -125,24 +135,19 @@ namespace ClinicAppointment.panels
             }
             else
             {
-                IAppointmentCommandService _commandApp=new AppointmentCommandService();
-                IAppointmentRepository appointmentRepo = new AppointmentRepository();
-
                 Appointment appointment = Appointment.BuildAppointment()
                     .StartDate(this.startdate.Value)
                     .EndDate(this.enddate.Value);
 
                 try
                 {
-                    _commandApp.Add(appointment);
+                    commandAppointment.Add(appointment);
                 }catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
                 }
 
-                IUserAppointmentCommandService _commandUserApp = new UserAppointmentCommandService();
-
-                int appointmentId = appointmentRepo.GetLastId();
+                int appointmentId = queryAppointment.GetLastId();
 
                 UserAppointment userAppointment = UserAppointment.BuildUserAppointment()
                      .PatientId(this.frmMain.userlogat.GetId())
@@ -151,7 +156,7 @@ namespace ClinicAppointment.panels
 
                 try
                 {
-                    _commandUserApp.Add(userAppointment);
+                    commandUserAppointment.Add(userAppointment);
                 }
                 catch (Exception ex)
                 {

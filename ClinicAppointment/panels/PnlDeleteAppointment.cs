@@ -1,10 +1,12 @@
 ﻿using ClinicAppointment.Appointments.model;
 using ClinicAppointment.Appointments.service;
 using ClinicAppointment.Appointments.service.interfaces;
+using ClinicAppointment.Appointments.service.singleton;
 using ClinicAppointment.forms;
 using ClinicAppointment.UserAppointments.model;
 using ClinicAppointment.UserAppointments.service;
 using ClinicAppointment.UserAppointments.service.interfaces;
+using ClinicAppointment.UserAppointments.service.singleton;
 using ClinicAppointment.Users.model;
 using System;
 using System.Collections.Generic;
@@ -29,9 +31,16 @@ namespace ClinicAppointment.panels
         private Appointment appointment;
         private FrmMain frmMain;
         private User user;
+        private IAppointmentCommandService commandAppointment;
+        private IUserAppointmentCommandService commandUserAppointment;
+        private IUserAppointmentQueryService queryUserAppointment;
 
         public PnlDeleteAppointment(Appointment appointment, FrmMain frmMain, User user)
         {
+            this.commandAppointment=AppointmentComanndServiceSingleton.Instance;
+            this.commandUserAppointment=UserAppointmentComanndServiceSingleton.Instance;
+            this.queryUserAppointment=UserAppointmentQueryServiceSingleton.Instance;
+
 
             this.appointment = appointment;
             this.frmMain = frmMain;
@@ -118,18 +127,15 @@ namespace ClinicAppointment.panels
 
         public void yes_Click(object sender, EventArgs e)
         {
-            IAppointmentCommandService commandApp=new AppointmentCommandService();
-            IUserAppointmentCommandService commandUserApp = new UserAppointmentCommandService();
-            IUserAppointmentQueryService queryUserApp = new UserAppointmentQueryService();
 
-            List<UserAppointment>list=queryUserApp.GetAllUserAppointments();
+            List<UserAppointment>list= queryUserAppointment.GetAllUserAppointments();
 
             list.ForEach(userAppointment =>
             {
                 if (userAppointment.GetPatientId().Equals(this.user.GetId())&&userAppointment.GetAppointmentId().Equals(this.appointment.GetId()))
                 {
-                    commandUserApp.Remove(userAppointment.GetId());
-                    commandApp.Remove(this.appointment.GetId());
+                    commandUserAppointment.Remove(userAppointment.GetId());
+                    commandAppointment.Remove(this.appointment.GetId());
 
                     this.frmMain.Controls.Remove(this.frmMain.activepanel);
                     this.frmMain.activepanel=new PnlAppointments(this.user, this.frmMain);

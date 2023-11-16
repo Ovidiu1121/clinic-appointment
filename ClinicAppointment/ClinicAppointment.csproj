@@ -94,6 +94,11 @@
       <HintPath>..\packages\System.Configuration.ConfigurationManager.4.4.1\lib\net461\System.Configuration.ConfigurationManager.dll</HintPath>
     </Reference>
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Common, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.Common.4.3.0\lib\net451\System.Data.Common.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Diagnostics.DiagnosticSource, Version=7.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Diagnostics.DiagnosticSource.7.0.2\lib\net462\System.Diagnostics.DiagnosticSource.dll</HintPath>
     </Reference>
@@ -189,6 +194,8 @@
     <Compile Include="forms\FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="FreeSlots\model\AvailableSlots.cs" />
+    <Compile Include="FreeSlots\model\IFreeSlot.cs" />
     <Compile Include="mockups\MockupAddAppointment.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -231,7 +238,16 @@
     <Compile Include="mockups\MockupRegister.Designer.cs">
       <DependentUpon>MockupRegister.cs</DependentUpon>
     </Compile>
+    <Compile Include="mockups\MockupShowFreeTime.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="mockups\MockupShowFreeTime.Designer.cs">
+      <DependentUpon>MockupShowFreeTime.cs</DependentUpon>
+    </Compile>
     <Compile Include="panels\PnlAddAppointment.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="panels\PnlAppointmentCard.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="panels\PnlAppointments.cs">
@@ -313,6 +329,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="mockups\MockupRegister.resx">
       <DependentUpon>MockupRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="mockups\MockupShowFreeTime.resx">
+      <DependentUpon>MockupShowFreeTime.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

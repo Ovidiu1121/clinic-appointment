@@ -1,4 +1,5 @@
 ﻿using ClinicAppointment.Appointments.model;
+using ClinicAppointment.FreeSlots.model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,5 +17,6 @@ namespace ClinicAppointment.Appointments.repository.interfaces
         List<Appointment> GetAllAppointments();
         int GetLastId();
         void Clean();
+        Task<IEnumerable<AvailableSlots>> GetFreeSlots(DateTime dateTime, DateTime endDate);
     }
 }

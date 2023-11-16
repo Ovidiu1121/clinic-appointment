@@ -1,7 +1,9 @@
 ﻿using ClinicAppointment.forms;
+using ClinicAppointment.UserAppointments.service.singleton;
 using ClinicAppointment.Users.model;
 using ClinicAppointment.Users.service;
 using ClinicAppointment.Users.service.interfaces;
+using ClinicAppointment.Users.service.singleton;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -18,9 +20,12 @@ namespace ClinicAppointment.panels
         private Panel pnlback;
         private FrmMain frmMain;
         private User userlogat;
+        private IUserQueryService userQueryService;
 
         public PnlDisplayDoctors(FrmMain frmMain,User userlogat)
         {
+            this.userQueryService=UserQueryServiceSingleton.Instance;
+
             this.userlogat = userlogat;
 
             this.Size=new Size(1168, 693);
@@ -35,15 +40,15 @@ namespace ClinicAppointment.panels
             this.pnlback.BackColor=Color.White;
 
             createCards();
+
+            this.userQueryService=UserQueryServiceSingleton.Instance;
         }
 
         public void createCards()
         {
-            int x = 60, y = 5;
+            int x = 70, y = 50;
 
-            IUserQueryService service = new UserQueryService();
-
-            List<User> doctors = service.GetAllUsers();
+            List<User> doctors = userQueryService.GetAllUsers();
 
             doctors.ForEach(doctor =>
             {

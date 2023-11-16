@@ -2,6 +2,7 @@
 using ClinicAppointment.Appointments.repository;
 using ClinicAppointment.Appointments.repository.interfaces;
 using ClinicAppointment.Appointments.service.interfaces;
+using ClinicAppointment.FreeSlots.model;
 using ClinicAppointment.utils;
 using ClinicScheduler.exceptii;
 using System;
@@ -48,6 +49,16 @@ namespace ClinicAppointment.Appointments.service
             }
 
             return appointment;
+        }
+
+        public async Task<IEnumerable<AvailableSlots>> GetFreeSlots(DateTime startTime, DateTime endTime)
+        {
+           return await this.repository.GetFreeSlots(startTime,endTime);
+        }
+
+        public int GetLastId()
+        {
+          return this.repository.GetLastId();
         }
     }
 }

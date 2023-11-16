@@ -1,4 +1,5 @@
-﻿using ClinicScheduler.data;
+﻿using ClinicAppointment.FreeSlots.model;
+using ClinicScheduler.data;
 using Dapper;
 using MySql.Data.MySqlClient;
 using System;
@@ -31,6 +32,18 @@ namespace ClinicScheduler.data
             {
 
                 connection.Execute(sqlstatement, parameters);
+
+            }
+        }
+
+        public async Task<IEnumerable<FreeSlot>>loadDataProcedure<FreeSlot, U>(string numeleProcedurii, U parameters, String connectionString)
+        {
+
+            using (IDbConnection connection = new MySqlConnection(connectionString))
+            {
+                var rows = await connection.QueryAsync<FreeSlot>(numeleProcedurii, parameters, commandType: CommandType.StoredProcedure);
+
+                return rows;
 
             }
         }

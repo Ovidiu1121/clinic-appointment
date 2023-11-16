@@ -38,22 +38,18 @@ namespace ClinicAppointment
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new FrmMain(user));
 
-            //IAppointmentCommandService a=new AppointmentCommandService();
-
-            //IAppointmentQueryService b = new AppointmentQueryService();
-
-            // Appointment appointment = Appointment.BuildAppointment()
-
-            //    .Id(1)
-            //    .StartDate(new DateTime(2022,2,12))
-            //    .EndDate(new DateTime(2022, 2, 16));
-
-            // a.Remove(7);
-            // //b.GetAllAppointments().ForEach(Console.WriteLine);
-
-
-
-
         }
+
+        //static async Task Main(string[] args)
+        //{
+        //    IAppointmentQueryService b = new AppointmentQueryService();
+
+        //    var freeSlots = await b.GetFreeSlots(new DateTime(2023, 10, 26, 9, 0, 0), new DateTime(2023, 10, 26, 17, 0, 0));
+
+        //    foreach (var slot in freeSlots)
+        //    {
+        //        Debug.WriteLine($"Start: {slot.StartTime.ToString()}, End: {slot.EndTime.ToString()}");
+        //    }
+        //}
     }
 }
