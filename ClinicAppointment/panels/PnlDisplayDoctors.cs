@@ -46,7 +46,7 @@ namespace ClinicAppointment.panels
 
         public void createCards()
         {
-            int x = 60, y = 5;
+            int x = 70, y = 50;
 
             List<User> doctors = userQueryService.GetAllUsers();
 

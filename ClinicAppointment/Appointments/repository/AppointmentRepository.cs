@@ -1,9 +1,13 @@
 ﻿using ClinicAppointment.Appointments.model;
 using ClinicAppointment.Appointments.repository.interfaces;
+using ClinicAppointment.FreeSlots.model;
 using ClinicScheduler.data;
+using Dapper;
 using Microsoft.Extensions.Configuration;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -74,6 +78,30 @@ namespace ClinicAppointment.Appointments.repository
 
             this.dataAccess.LoadData<Appointment,dynamic>(sql, new { id=id}, connectionString);
         }
+        public async Task<IEnumerable<AvailableSlots>> GetFreeSlots(DateTime startTime,DateTime endTime)
+        {
+
+            try
+            {
+                using (IDbConnection connection = new MySqlConnection(connectionString))
+                {
+                    var parameters = new DynamicParameters();
+                    parameters.Add("inputStartTime", startTime);
+                    parameters.Add("inputEndTime", endTime);
+
+                    var timeSlots =  connection.Query<AvailableSlots>("FindFreeSlots", parameters,commandType: CommandType.StoredProcedure);
+
+                    return  timeSlots;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"An error occurred: {ex.Message}");
+            }
+
+            return null;
+
+        }
 
         public string GetConnection()
         {
@@ -83,4 +111,6 @@ namespace ClinicAppointment.Appointments.repository
             return connectionStringIs;
         }
     }
+
+
 }
