@@ -70,7 +70,7 @@ namespace ClinicAppointment.panels
             this.btnseefreetime.Text="See free time";
             this.btnseefreetime.ForeColor=Color.White;
             this.btnseefreetime.Font=new Font("Arial", 11, FontStyle.Regular);
-
+            this.btnseefreetime.Click+=new EventHandler(this.see_free_time_Click);
 
         }
 
@@ -79,6 +79,15 @@ namespace ClinicAppointment.panels
             this.frmMain.Controls.Remove(this.frmMain.activepanel);
             this.frmMain.activepanel=new PnlAddAppointment(this.doctor, this.frmMain);
             this.frmMain.Controls.Add(this.frmMain.activepanel);
+        }
+
+        public void see_free_time_Click(object sender,EventArgs e)
+        {
+
+            this.frmMain.Controls.Remove(this.frmMain.activepanel);
+            this.frmMain.activepanel=new PnlShowFreeTime(this.frmMain);
+            this.frmMain.Controls.Add(this.frmMain.activepanel);
+
         }
 
     }
