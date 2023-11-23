@@ -80,7 +80,6 @@ namespace ClinicAppointment.Appointments.repository
         }
         public async Task<IEnumerable<AvailableSlots>> GetFreeSlots(DateTime startTime,DateTime endTime)
         {
-
             try
             {
                 using (IDbConnection connection = new MySqlConnection(connectionString))
