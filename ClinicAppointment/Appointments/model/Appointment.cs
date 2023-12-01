@@ -22,7 +22,6 @@ namespace ClinicAppointment.Appointments.model
             this.startDate = startDate;
             this.endDate = endDate;
         }
-
         public Appointment(int id, String startDate, String endDate)
         {
             this.id = id;

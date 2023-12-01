@@ -85,7 +85,7 @@ namespace ClinicAppointment.panels
         {
 
             this.frmMain.Controls.Remove(this.frmMain.activepanel);
-            this.frmMain.activepanel=new PnlShowFreeTime(this.frmMain);
+            this.frmMain.activepanel=new PnlShowFreeTime(this.frmMain, this.doctor, this.userlogat);
             this.frmMain.Controls.Add(this.frmMain.activepanel);
 
         }

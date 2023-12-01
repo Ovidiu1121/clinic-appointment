@@ -280,6 +280,9 @@
     <Compile Include="panels\PnlShowFreeTime.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="panels\PnlShowFreeTimeCard.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Role\UserPermissions.cs" />

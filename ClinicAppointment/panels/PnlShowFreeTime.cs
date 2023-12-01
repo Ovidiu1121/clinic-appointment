@@ -1,7 +1,9 @@
-﻿using ClinicAppointment.Appointments.service;
+﻿using ClinicAppointment.Appointments.model;
+using ClinicAppointment.Appointments.service;
 using ClinicAppointment.Appointments.service.interfaces;
 using ClinicAppointment.Appointments.service.singleton;
 using ClinicAppointment.forms;
+using ClinicAppointment.Users.model;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -20,13 +22,17 @@ namespace ClinicAppointment.panels
         private Panel pnlback;
         private FrmMain frmMain;
         private IAppointmentQueryService queryAppointment;
+        private User doctor;
+        private User userlogat;
 
-        public PnlShowFreeTime(FrmMain frmMain)
+        public PnlShowFreeTime(FrmMain frmMain, User doctor, User userlogat)
         {
-            this.Size=new Size(630, 320);
-            this.Location=new Point(450, 200);
+            this.Size=new Size(630, 500);
+            this.Location=new Point(470, 100);
             this.BackColor=Color.CadetBlue;
             this.frmMain=frmMain;
+            this.doctor=doctor;
+            this.userlogat=userlogat;
             this.queryAppointment=AppointmentQueryServiceSingleton.Instance;
 
             this.lblshowfreetime=new Label();
@@ -55,7 +61,7 @@ namespace ClinicAppointment.panels
             this.pnlback=new Panel();
             this.Controls.Add(this.pnlback);
             this.pnlback.Location=new Point(69, 147);
-            this.pnlback.Size=new Size(486, 159);
+            this.pnlback.Size=new Size(486, 330);
             this.pnlback.BackColor=Color.White;
         }
 
@@ -64,20 +70,19 @@ namespace ClinicAppointment.panels
 
             var freeSlots = await queryAppointment.GetFreeSlots(new DateTime(this.date.Value.Year, this.date.Value.Month, this.date.Value.Day, 9, 0, 0), new DateTime(this.date.Value.Year, this.date.Value.Month, this.date.Value.Day, 17, 0, 0));
            
-            int x = 70, y = 30;
+            int x = 10, y = 10;
 
             foreach (var slot in freeSlots)
             {
-                Label lblfreeslot=new Label();
+                int appointmentId = this.queryAppointment.GetLastId()+1;
 
-                lblfreeslot.Text="Start:"+slot.StartTime.ToString()+" - End:"+slot.EndTime.ToString();
-                lblfreeslot.Font=new Font("Arial", 9, FontStyle.Regular);
-                lblfreeslot.Size=new Size(350, 20);
-                lblfreeslot.Location=new Point(x, y);
+                PnlShowFreeTimeCard card = new PnlShowFreeTimeCard(this.frmMain,new Appointment(appointmentId,slot.StartTime,slot.EndTime),this.doctor,this.userlogat);
 
-                this.pnlback.Controls.Add(lblfreeslot);
+                card.Location=new Point(x, y); 
 
-                y+=30;
+                this.pnlback.Controls.Add(card);
+
+                y+=80;
             }
             if (y>this.pnlback.Height-50)
             {

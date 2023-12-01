@@ -11,5 +11,6 @@ namespace ClinicAppointment.UserAppointments.service.interfaces
     {
         UserAppointment GetById(int id);
         List<UserAppointment> GetAllUserAppointments();
+        int GetLastId();
     }
 }
