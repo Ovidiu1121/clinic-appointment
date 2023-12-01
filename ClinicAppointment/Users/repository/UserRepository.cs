@@ -70,7 +70,7 @@ namespace ClinicAppointment.Users.repository
 
         public int GetLastId()
         {
-            string sql = "SELECT LAST_INSERT_ID()";
+            string sql = "SELECT id FROM user WHERE ID = (SELECT MAX(ID) FROM user)";
 
             return dataAccess.LoadData<int, dynamic>(sql, new { }, connectionString)[0];
         }

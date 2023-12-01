@@ -1,4 +1,6 @@
 ﻿using ClinicAppointment.Appointments.model;
+using ClinicAppointment.Appointments.service.interfaces;
+using ClinicAppointment.Appointments.service.singleton;
 using ClinicAppointment.forms;
 using ClinicAppointment.UserAppointments.model;
 using ClinicAppointment.UserAppointments.service.interfaces;
@@ -24,6 +26,7 @@ namespace ClinicAppointment.panels
         private Label lblendtime;
         private Button btndelete;
         private Appointment appointment;
+        private IAppointmentCommandService commandAppointment;
         private IUserAppointmentQueryService queryUserAppointment;
         private IUserAppointmentCommandService commandUserAppointment;
         private IUserQueryService queryUser;
@@ -35,6 +38,7 @@ namespace ClinicAppointment.panels
         {
             this.queryUserAppointment=UserAppointmentQueryServiceSingleton.Instance;
             this.queryUser= UserQueryServiceSingleton.Instance;
+            this.commandAppointment=AppointmentComanndServiceSingleton.Instance;
             this.appointment=appointment;
             this.userAppointment=userAppointment;
             this.doctor=new User();
@@ -91,6 +95,7 @@ namespace ClinicAppointment.panels
         public void remove_Click(object sender, EventArgs e)
         {
             this.commandUserAppointment.Remove(this.userAppointment.GetId());
+            this.commandAppointment.Remove(this.appointment.GetId());
 
             this.frmMain.Controls.Remove(this.frmMain.activepanel);
             this.frmMain.activepanel=new PnlAppointments(this.frmMain.userlogat, this.frmMain);

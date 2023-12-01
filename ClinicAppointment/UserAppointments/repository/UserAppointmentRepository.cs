@@ -28,9 +28,9 @@ namespace ClinicAppointment.UserAppointments.repository
 
         public void Add(UserAppointment userAppointment)
         {
-            string sql = "insert into user_appointment(patientId,doctorId,appointmentId) values(@patientId,@doctorId,@appointmentId)";
+            string sql = "insert into user_appointment(id,patientId,doctorId,appointmentId) values(@id,@patientId,@doctorId,@appointmentId)";
 
-            this.dataAccess.SaveData(sql, new { patientId=userAppointment.GetPatientId(),doctorId=userAppointment.GetDoctorId(),appointmentId=userAppointment.GetAppointmentId() }, connectionString);
+            this.dataAccess.SaveData(sql, new {id=userAppointment.GetId(), patientId=userAppointment.GetPatientId(),doctorId=userAppointment.GetDoctorId(),appointmentId=userAppointment.GetAppointmentId() }, connectionString);
         }
 
         public void Clean()
@@ -63,7 +63,7 @@ namespace ClinicAppointment.UserAppointments.repository
 
         public int GetLastId()
         {
-            string sql = "SELECT LAST_INSERT_ID()";
+            string sql = "SELECT id FROM user_appointment WHERE ID = (SELECT MAX(ID) FROM user_appointment)";
 
             return dataAccess.LoadData<int, dynamic>(sql, new { }, connectionString)[0];
         }

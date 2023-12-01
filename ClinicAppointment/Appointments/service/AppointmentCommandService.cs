@@ -26,6 +26,8 @@ namespace ClinicAppointment.Appointments.service
         {
             List<Appointment> appointments = this.repository.GetAllAppointments();
 
+            appointment.GetEndDate().Date.Hour.Equals(appointment.GetEndDate().Date.Hour+1);
+
             foreach (Appointment p in appointments)
             {
                 if (p.Equals(appointment))
