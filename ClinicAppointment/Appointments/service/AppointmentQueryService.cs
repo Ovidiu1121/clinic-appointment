@@ -51,9 +51,9 @@ namespace ClinicAppointment.Appointments.service
             return appointment;
         }
 
-        public async Task<IEnumerable<AvailableSlots>> GetFreeSlots(DateTime startTime, DateTime endTime)
+        public async Task<IEnumerable<AvailableSlots>> GetFreeSlots(DateTime startTime, DateTime endTime, int appointmentDuration)
         {
-           return await this.repository.GetFreeSlots(startTime,endTime);
+           return await this.repository.GetFreeSlots(startTime,endTime,appointmentDuration);
         }
 
         public int GetLastId()

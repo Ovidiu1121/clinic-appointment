@@ -78,7 +78,7 @@ namespace ClinicAppointment.Appointments.repository
 
             this.dataAccess.LoadData<Appointment,dynamic>(sql, new { id=id}, connectionString);
         }
-        public async Task<IEnumerable<AvailableSlots>> GetFreeSlots(DateTime startTime,DateTime endTime)
+        public async Task<IEnumerable<AvailableSlots>> GetFreeSlots(DateTime startTime,DateTime endTime,int appointmentDuration)
         {
             try
             {
@@ -87,8 +87,9 @@ namespace ClinicAppointment.Appointments.repository
                     var parameters = new DynamicParameters();
                     parameters.Add("inputStartTime", startTime);
                     parameters.Add("inputEndTime", endTime);
+                    parameters.Add("appointmentDuration", appointmentDuration);
 
-                    var timeSlots =  connection.Query<AvailableSlots>("FindFreeSlots", parameters,commandType: CommandType.StoredProcedure);
+                    var timeSlots =  connection.Query<AvailableSlots>("FindFreeSlots2", parameters,commandType: CommandType.StoredProcedure);
 
                     return  timeSlots;
                 }

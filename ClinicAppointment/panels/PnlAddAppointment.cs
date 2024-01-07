@@ -37,6 +37,7 @@ namespace ClinicAppointment.panels
         private IAppointmentCommandService commandAppointment;
         private IAppointmentQueryService queryAppointment;
         private IUserAppointmentCommandService commandUserAppointment;
+        private IUserAppointmentQueryService queryUserAppointment;
 
 
         public PnlAddAppointment(User doctor, FrmMain frmMain)
@@ -44,6 +45,7 @@ namespace ClinicAppointment.panels
             this.commandUserAppointment=UserAppointmentComanndServiceSingleton.Instance;
             this.commandAppointment=AppointmentComanndServiceSingleton.Instance;
             this.queryAppointment=AppointmentQueryServiceSingleton.Instance;
+            this.queryUserAppointment=UserAppointmentQueryServiceSingleton.Instance;
 
             this.doctor = doctor;
             this.frmMain = frmMain;
@@ -135,9 +137,15 @@ namespace ClinicAppointment.panels
             }
             else
             {
+                int appointmentId = queryAppointment.GetLastId()+1;
+
                 Appointment appointment = Appointment.BuildAppointment()
+                    .Id(appointmentId)
                     .StartDate(this.startdate.Value)
                     .EndDate(this.enddate.Value);
+
+                appointment.SetEndDate(new DateTime(appointment.GetEndDate().Year, appointment.GetEndDate().Month, appointment.GetEndDate().Day, appointment.GetEndDate().Hour+1, 0, 0));
+                appointment.SetStartDate(new DateTime(appointment.GetStartDate().Year, appointment.GetStartDate().Month, appointment.GetStartDate().Day, appointment.GetStartDate().Hour, 0, 0));
 
                 try
                 {
@@ -147,9 +155,10 @@ namespace ClinicAppointment.panels
                     MessageBox.Show(ex.Message);
                 }
 
-                int appointmentId = queryAppointment.GetLastId();
+                int userAppointmentId = this.queryUserAppointment.GetLastId()+1;
 
                 UserAppointment userAppointment = UserAppointment.BuildUserAppointment()
+                     .Id(userAppointmentId)
                      .PatientId(this.frmMain.userlogat.GetId())
                      .DoctorId(this.doctor.GetId())
                      .AppointmentId(appointmentId);

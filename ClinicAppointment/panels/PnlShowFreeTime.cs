@@ -68,7 +68,7 @@ namespace ClinicAppointment.panels
         public async void showfreetime_Click(object sender,EventArgs e)
         {
 
-            var freeSlots = await queryAppointment.GetFreeSlots(new DateTime(this.date.Value.Year, this.date.Value.Month, this.date.Value.Day, 9, 0, 0), new DateTime(this.date.Value.Year, this.date.Value.Month, this.date.Value.Day, 17, 0, 0));
+            var freeSlots = await queryAppointment.GetFreeSlots(new DateTime(this.date.Value.Year, this.date.Value.Month, this.date.Value.Day, this.doctor.GetWorkStartTime(), 0, 0), new DateTime(this.date.Value.Year, this.date.Value.Month, this.date.Value.Day, this.doctor.GetWorkEndTime(), 0, 0),this.doctor.GetAppointmentDuration());
            
             int x = 10, y = 10;
 

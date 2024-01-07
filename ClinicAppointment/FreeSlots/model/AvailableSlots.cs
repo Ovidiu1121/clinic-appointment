@@ -11,7 +11,6 @@ namespace ClinicAppointment.FreeSlots.model
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
 
-
         
     }
 }

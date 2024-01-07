@@ -20,6 +20,9 @@ namespace ClinicAppointment.panels
         private FrmMain frmMain;
         private User doctor;
         private User userlogat;
+        private Label lblschedule;
+        private Label lblworkhours;
+        private Label lblappointmentduration;
         public PnlDoctorCard(User doctor, FrmMain frmMain,User userlogat)
         {
             this.userlogat = userlogat;
@@ -71,6 +74,23 @@ namespace ClinicAppointment.panels
             this.btnseefreetime.ForeColor=Color.White;
             this.btnseefreetime.Font=new Font("Arial", 11, FontStyle.Regular);
             this.btnseefreetime.Click+=new EventHandler(this.see_free_time_Click);
+
+            this.lblappointmentduration=new Label();
+            this.Controls.Add(this.lblappointmentduration);
+            this.lblappointmentduration.Location=new Point(270, 54);
+            this.lblappointmentduration.Size=new Size(260, 25);
+            this.lblappointmentduration.Text="Appointment duration: "+(this.doctor.GetAppointmentDuration()/100).ToString()+" minutes";
+            this.lblappointmentduration.Font=new Font("Arial", 10, FontStyle.Bold);
+            this.lblappointmentduration.ForeColor=Color.White;
+
+            this.lblschedule=new Label();
+            this.Controls.Add(this.lblschedule);
+            this.lblschedule.Location=new Point(270, 83);
+            this.lblschedule.Size=new Size(250, 20);
+            this.lblschedule.Text="Schedule: From "+this.doctor.GetWorkStartTime().ToString()+" PM "+
+                " to "+this.doctor.GetWorkEndTime().ToString()+ " PM";
+            this.lblschedule.Font=new Font("Arial", 10, FontStyle.Bold);
+            this.lblschedule.ForeColor=Color.White;
 
         }
 

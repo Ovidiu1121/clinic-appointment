@@ -33,6 +33,10 @@ namespace ClinicAppointment.panels
         UserAppointment userAppointment;
         private User doctor;
         private FrmMain frmMain;
+        private Label lblinfo;
+        private Label lblschedule;
+        private Label lblworkhours;
+        private Label lblappointmentduration;
 
         public PnlAppointmentCard(Appointment appointment,UserAppointment userAppointment, FrmMain frmMain)
         {
@@ -49,6 +53,10 @@ namespace ClinicAppointment.panels
             this.ForeColor=Color.CadetBlue;
             this.Size = new System.Drawing.Size(320, 236);
             this.BackColor=Color.White;
+
+            this.lblinfo=new Label();
+            this.Controls.Add(this.lblinfo);
+            this.lblinfo.Location=new Point();
 
             this.lblid = new Label();
             this.Controls.Add(this.lblid);
