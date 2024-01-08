@@ -271,6 +271,9 @@
     <Compile Include="panels\PnlDoctorAppointments.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="panels\PnlDoctorAppointmentsCard.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="panels\PnlDoctorCard.cs">
       <SubType>Component</SubType>
     </Compile>

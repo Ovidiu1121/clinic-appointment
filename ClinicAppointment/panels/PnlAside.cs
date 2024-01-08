@@ -13,7 +13,8 @@ namespace ClinicAppointment.panels
     {
         private Button btnhome;
         private Button btndoctors;
-        private Button btnappointments;
+        private Button btnpacientappointments;
+        private Button btndoctorappointments;
         private FrmMain frmMain;
         
         public PnlAside(FrmMain frmMain)
@@ -47,17 +48,29 @@ namespace ClinicAppointment.panels
             this.btndoctors.ForeColor=Color.White;
             this.btndoctors.Click+=new EventHandler(this.show_doctors_Click);
 
-            this.btnappointments=new Button();
-            this.Controls.Add(this.btnappointments);
-            this.btnappointments.Location=new Point(0, 180);
-            this.btnappointments.Size=new Size(206, 40);
-            this.btnappointments.Text="Appointments";
-            this.btnappointments.FlatAppearance.BorderSize=1;
-            this.btnappointments.FlatStyle=FlatStyle.Flat;
-            this.btnappointments.TextAlign=ContentAlignment.MiddleCenter;
-            this.btnappointments.Font=new Font("Arial", 12, FontStyle.Bold);
-            this.btnappointments.ForeColor=Color.White;
-            this.btnappointments.Click+=new EventHandler(this.appointments_Click);
+            this.btnpacientappointments=new Button();
+            this.Controls.Add(this.btnpacientappointments);
+            this.btnpacientappointments.Location=new Point(0, 180);
+            this.btnpacientappointments.Size=new Size(206, 40);
+            this.btnpacientappointments.Text="Appointments";
+            this.btnpacientappointments.FlatAppearance.BorderSize=1;
+            this.btnpacientappointments.FlatStyle=FlatStyle.Flat;
+            this.btnpacientappointments.TextAlign=ContentAlignment.MiddleCenter;
+            this.btnpacientappointments.Font=new Font("Arial", 12, FontStyle.Bold);
+            this.btnpacientappointments.ForeColor=Color.White;
+            this.btnpacientappointments.Click+=new EventHandler(this.appointments_Click);
+
+            this.btndoctorappointments=new Button();
+            this.Controls.Add(this.btndoctorappointments);
+            this.btndoctorappointments.Location=new Point(0, 220);
+            this.btndoctorappointments.Size=new Size(206, 40);
+            this.btndoctorappointments.Text="Show appointments";
+            this.btndoctorappointments.FlatAppearance.BorderSize=1;
+            this.btndoctorappointments.FlatStyle=FlatStyle.Flat;
+            this.btndoctorappointments.TextAlign=ContentAlignment.MiddleCenter;
+            this.btndoctorappointments.Font=new Font("Arial", 12, FontStyle.Bold);
+            this.btndoctorappointments.ForeColor=Color.White;
+            this.btndoctorappointments.Click+=new EventHandler(this.doctor_appointments_Click);
 
         }
 
@@ -79,6 +92,13 @@ namespace ClinicAppointment.panels
         {
             this.frmMain.Controls.Remove(this.frmMain.activepanel);
             this.frmMain.activepanel=new PnlAppointments(this.frmMain.userlogat,this.frmMain);
+            this.frmMain.Controls.Add(this.frmMain.activepanel);
+        }
+
+        public void doctor_appointments_Click(object sender, EventArgs e)
+        {
+            this.frmMain.Controls.Remove(this.frmMain.activepanel);
+            this.frmMain.activepanel=new PnlDoctorAppointments(this.frmMain,this.frmMain.userlogat);
             this.frmMain.Controls.Add(this.frmMain.activepanel);
         }
 

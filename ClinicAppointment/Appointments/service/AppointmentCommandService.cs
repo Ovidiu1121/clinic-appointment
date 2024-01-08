@@ -63,5 +63,11 @@ namespace ClinicAppointment.Appointments.service
 
             this.repository.Remove(id);
         }
+
+        public void editAppointment(Appointment oldAppointment, Appointment newAppointment)
+        {
+            this.repository.editAppointment(oldAppointment, newAppointment);
+        }
+
     }
 }

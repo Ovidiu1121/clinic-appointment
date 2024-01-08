@@ -32,11 +32,12 @@ namespace ClinicAppointment
         {
             IUserQueryService queryService = new UserQueryService();
 
-            User user = queryService.GetById(1);
+            User pacient = queryService.GetById(1);
+            User doctor = queryService.GetById(3);
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmMain(user));
+            Application.Run(new FrmMain(doctor));
 
         }
 

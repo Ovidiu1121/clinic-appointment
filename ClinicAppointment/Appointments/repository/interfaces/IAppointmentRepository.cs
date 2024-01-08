@@ -18,5 +18,6 @@ namespace ClinicAppointment.Appointments.repository.interfaces
         int GetLastId();
         void Clean();
         Task<IEnumerable<AvailableSlots>> GetFreeSlots(DateTime dateTime, DateTime endDate,int appointmentDuration);
+        void editAppointment(Appointment oldAppointment, Appointment newAppointment);
     }
 }
