@@ -26,8 +26,6 @@ namespace ClinicAppointment.Appointments.service
         {
             List<Appointment> appointments = this.repository.GetAllAppointments();
 
-            appointment.GetEndDate().Date.Hour.Equals(appointment.GetEndDate().Date.Hour+1);
-
             foreach (Appointment p in appointments)
             {
                 if (p.Equals(appointment))
@@ -65,5 +63,11 @@ namespace ClinicAppointment.Appointments.service
 
             this.repository.Remove(id);
         }
+
+        public void editAppointment(Appointment oldAppointment, Appointment newAppointment)
+        {
+            this.repository.editAppointment(oldAppointment, newAppointment);
+        }
+
     }
 }

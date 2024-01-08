@@ -13,6 +13,6 @@ namespace ClinicAppointment.Appointments.service.interfaces
         Appointment GetById(int id);
         int GetLastId();
         List<Appointment> GetAllAppointments();
-        Task<IEnumerable<AvailableSlots>> GetFreeSlots(DateTime startTime, DateTime endTime);
+        Task<IEnumerable<AvailableSlots>> GetFreeSlots(DateTime startTime, DateTime endTime,int appointmentDuration);
     }
 }

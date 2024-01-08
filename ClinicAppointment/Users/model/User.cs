@@ -13,6 +13,10 @@ namespace ClinicAppointment.Users.model
         private String email;
         private String password;
         private String phone;
+        private int appointmentDuration;
+        private int workStartTime;
+        private int workEndTime;
+
         private UserType type;
 
 
@@ -26,6 +30,18 @@ namespace ClinicAppointment.Users.model
             this.password = password;
             this.phone = phone;
             this.type = type;
+        }
+        public User(Int32 id, String name, String email, String password, String phone, UserType type,int appointmentDuration,int workStartTime,int workEndTime)
+        {
+            this.id = id;
+            this.name = name;
+            this.email = email;
+            this.password = password;
+            this.phone = phone;
+            this.type = type;
+            this.appointmentDuration = appointmentDuration;
+            this.workStartTime = workStartTime;
+            this.workEndTime = workEndTime;
         }
 
         public User(User user)
@@ -64,6 +80,12 @@ namespace ClinicAppointment.Users.model
 
         public UserType GetType() { return this.type; }
 
+        public int GetAppointmentDuration() { return this.appointmentDuration; }
+
+        public int GetWorkStartTime() { return this.workStartTime; }
+
+        public int GetWorkEndTime() { return this.workEndTime; }
+
         public void SetId(Int32 id) { this.id = id; }
 
         public void SetName(String name) { this.name = name; }
@@ -75,6 +97,12 @@ namespace ClinicAppointment.Users.model
         public void SetPhone(String phone) { this.phone = phone; }
 
         public void SetType(UserType type) { this.type = type; }
+
+        public void SetAppointmentDuration(int appointmentDuration) { this.appointmentDuration = appointmentDuration;}
+
+        public void SetWorkStartTime(int workStartTime) { this.workStartTime = workStartTime;}
+
+        public void SetWorkEndTime(int workEndTime) { this.workEndTime = workEndTime;}
 
         #endregion
 
@@ -115,6 +143,22 @@ namespace ClinicAppointment.Users.model
             this.type = type;
             return this;
         }
+        public User AppointmentDuration(int appointmentDuration)
+        {
+            this.appointmentDuration=appointmentDuration;
+            return this;
+        }
+        public User WorkStartTime(int workStartTime)
+        {
+            this.workStartTime = workStartTime;
+            return this;
+        }
+        public User WorkEndTime(int workEndTime)
+        {
+            this.workEndTime = workEndTime;
+            return this;
+        }
+
 
         #endregion
 

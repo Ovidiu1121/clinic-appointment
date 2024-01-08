@@ -9,17 +9,13 @@ namespace ClinicAppointment.Users.model
     public interface IUserBuilder
     {
         User Id(int id);
-
         User Name(string name);
-
         User Email(string email);
-
         User Password(string password);
-
         User Phone(string phone);
-
         User Type(UserType type);
-
-      
+        User AppointmentDuration(int appointmentDuration);
+        User WorkStartTime(int workStartTime);
+        User WorkEndTime(int workEndTime);
     }
 }
