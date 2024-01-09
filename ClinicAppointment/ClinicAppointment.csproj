@@ -154,6 +154,7 @@
     <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
     </Reference>
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -244,6 +245,12 @@
     <Compile Include="mockups\MockupRegister.Designer.cs">
       <DependentUpon>MockupRegister.cs</DependentUpon>
     </Compile>
+    <Compile Include="mockups\MockupReports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="mockups\MockupReports.Designer.cs">
+      <DependentUpon>MockupReports.cs</DependentUpon>
+    </Compile>
     <Compile Include="mockups\MockupShowFreeTime.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -287,6 +294,9 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="panels\PnlRegister.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="panels\PnlReports.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="panels\PnlShowFreeTime.cs">
@@ -350,6 +360,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="mockups\MockupRegister.resx">
       <DependentUpon>MockupRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="mockups\MockupReports.resx">
+      <DependentUpon>MockupReports.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="mockups\MockupShowFreeTime.resx">
       <DependentUpon>MockupShowFreeTime.cs</DependentUpon>
