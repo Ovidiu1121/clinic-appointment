@@ -239,6 +239,12 @@
     <Compile Include="mockups\MockupMain.Designer.cs">
       <DependentUpon>MockupMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="mockups\MockupPersonalData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="mockups\MockupPersonalData.Designer.cs">
+      <DependentUpon>MockupPersonalData.cs</DependentUpon>
+    </Compile>
     <Compile Include="mockups\MockupRegister.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -305,6 +311,9 @@
     <Compile Include="panels\PnlShowFreeTimeCard.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="panels\PnlUpdatePersonalData.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Role\UserPermissions.cs" />
@@ -357,6 +366,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="mockups\MockupMain.resx">
       <DependentUpon>MockupMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="mockups\MockupPersonalData.resx">
+      <DependentUpon>MockupPersonalData.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="mockups\MockupRegister.resx">
       <DependentUpon>MockupRegister.cs</DependentUpon>
