@@ -15,6 +15,8 @@ namespace ClinicAppointment.panels
         private Button btndoctors;
         private Button btnpacientappointments;
         private Button btndoctorappointments;
+        private Button btnreportsandanalysis;
+        private Button btnpersonaldata;
         private FrmMain frmMain;
         
         public PnlAside(FrmMain frmMain)
@@ -72,6 +74,30 @@ namespace ClinicAppointment.panels
             this.btndoctorappointments.ForeColor=Color.White;
             this.btndoctorappointments.Click+=new EventHandler(this.doctor_appointments_Click);
 
+            this.btnreportsandanalysis=new Button();
+            this.Controls.Add(this.btnreportsandanalysis);
+            this.btnreportsandanalysis.Location=new Point(0, 260);
+            this.btnreportsandanalysis.Size=new Size(206, 40);
+            this.btnreportsandanalysis.Text="Reports and analysis";
+            this.btnreportsandanalysis.FlatAppearance.BorderSize=1;
+            this.btnreportsandanalysis.FlatStyle=FlatStyle.Flat;
+            this.btnreportsandanalysis.TextAlign=ContentAlignment.MiddleCenter;
+            this.btnreportsandanalysis.Font=new Font("Arial", 12, FontStyle.Bold);
+            this.btnreportsandanalysis.ForeColor=Color.White;
+            this.btnreportsandanalysis.Click+=new EventHandler(this.reports_analysis_Click);
+
+            this.btnpersonaldata=new Button();
+            this.Controls.Add(this.btnpersonaldata);
+            this.btnpersonaldata.Location=new Point(0, 300);
+            this.btnpersonaldata.Size=new Size(206, 40);
+            this.btnpersonaldata.Text="Personal informations";
+            this.btnpersonaldata.FlatAppearance.BorderSize=1;
+            this.btnpersonaldata.FlatStyle=FlatStyle.Flat;
+            this.btnpersonaldata.TextAlign=ContentAlignment.MiddleCenter;
+            this.btnpersonaldata.Font=new Font("Arial", 12, FontStyle.Bold);
+            this.btnpersonaldata.ForeColor=Color.White;
+            this.btnpersonaldata.Click+=new EventHandler(this.personal_informations_Click);
+
         }
 
         public void home_Click(object sender,EventArgs e)
@@ -99,6 +125,20 @@ namespace ClinicAppointment.panels
         {
             this.frmMain.Controls.Remove(this.frmMain.activepanel);
             this.frmMain.activepanel=new PnlDoctorAppointments(this.frmMain,this.frmMain.userlogat);
+            this.frmMain.Controls.Add(this.frmMain.activepanel);
+        }
+
+        public void reports_analysis_Click(object sender, EventArgs e)
+        {
+            this.frmMain.Controls.Remove(this.frmMain.activepanel);
+            this.frmMain.activepanel=new PnlReports();
+            this.frmMain.Controls.Add(this.frmMain.activepanel);
+        }
+
+        public void personal_informations_Click(object sender, EventArgs e)
+        {
+            this.frmMain.Controls.Remove(this.frmMain.activepanel);
+            this.frmMain.activepanel=new PnlUpdatePersonalData(this.frmMain,this.frmMain.userlogat);
             this.frmMain.Controls.Add(this.frmMain.activepanel);
         }
 

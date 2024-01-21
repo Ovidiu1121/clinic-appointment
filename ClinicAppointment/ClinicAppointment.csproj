@@ -154,6 +154,7 @@
     <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
     </Reference>
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -202,6 +203,12 @@
     <Compile Include="mockups\MockupAddAppointment.Designer.cs">
       <DependentUpon>MockupAddAppointment.cs</DependentUpon>
     </Compile>
+    <Compile Include="mockups\MockupAppointmentHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="mockups\MockupAppointmentHistory.Designer.cs">
+      <DependentUpon>MockupAppointmentHistory.cs</DependentUpon>
+    </Compile>
     <Compile Include="mockups\MockupAppointmentsPage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -213,6 +220,12 @@
     </Compile>
     <Compile Include="mockups\MockupDeleteAppointment.Designer.cs">
       <DependentUpon>MockupDeleteAppointment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="mockups\MockupDiagrams.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="mockups\MockupDiagrams.Designer.cs">
+      <DependentUpon>MockupDiagrams.cs</DependentUpon>
     </Compile>
     <Compile Include="mockups\MockupDoctorAppointments.cs">
       <SubType>Form</SubType>
@@ -238,11 +251,23 @@
     <Compile Include="mockups\MockupMain.Designer.cs">
       <DependentUpon>MockupMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="mockups\MockupPersonalData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="mockups\MockupPersonalData.Designer.cs">
+      <DependentUpon>MockupPersonalData.cs</DependentUpon>
+    </Compile>
     <Compile Include="mockups\MockupRegister.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="mockups\MockupRegister.Designer.cs">
       <DependentUpon>MockupRegister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="mockups\MockupReports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="mockups\MockupReports.Designer.cs">
+      <DependentUpon>MockupReports.cs</DependentUpon>
     </Compile>
     <Compile Include="mockups\MockupShowFreeTime.cs">
       <SubType>Form</SubType>
@@ -256,6 +281,12 @@
     <Compile Include="panels\PnlAppointmentCard.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="panels\PnlAppointmentHistory.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="panels\PnlAppointmentHistoryCard.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="panels\PnlAppointments.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -263,6 +294,9 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="panels\PnlDeleteAppointment.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="panels\PnlDiagrams.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="panels\PnlDisplayDoctors.cs">
@@ -289,10 +323,16 @@
     <Compile Include="panels\PnlRegister.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="panels\PnlReports.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="panels\PnlShowFreeTime.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="panels\PnlShowFreeTimeCard.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="panels\PnlUpdatePersonalData.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Program.cs" />
@@ -330,11 +370,17 @@
     <EmbeddedResource Include="mockups\MockupAddAppointment.resx">
       <DependentUpon>MockupAddAppointment.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="mockups\MockupAppointmentHistory.resx">
+      <DependentUpon>MockupAppointmentHistory.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="mockups\MockupAppointmentsPage.resx">
       <DependentUpon>MockupAppointmentsPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="mockups\MockupDeleteAppointment.resx">
       <DependentUpon>MockupDeleteAppointment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="mockups\MockupDiagrams.resx">
+      <DependentUpon>MockupDiagrams.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="mockups\MockupDoctorAppointments.resx">
       <DependentUpon>MockupDoctorAppointments.cs</DependentUpon>
@@ -348,8 +394,14 @@
     <EmbeddedResource Include="mockups\MockupMain.resx">
       <DependentUpon>MockupMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="mockups\MockupPersonalData.resx">
+      <DependentUpon>MockupPersonalData.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="mockups\MockupRegister.resx">
       <DependentUpon>MockupRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="mockups\MockupReports.resx">
+      <DependentUpon>MockupReports.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="mockups\MockupShowFreeTime.resx">
       <DependentUpon>MockupShowFreeTime.cs</DependentUpon>

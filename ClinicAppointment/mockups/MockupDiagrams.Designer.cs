@@ -1,6 +1,6 @@
-﻿namespace ClinicAppointment.forms
+﻿namespace ClinicAppointment.mockups
 {
-    partial class FrmHome
+    partial class MockupDiagrams
     {
         /// <summary>
         /// Required designer variable.
@@ -46,14 +46,14 @@
             this.chart1.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(262, 53);
+            this.chart1.Location = new System.Drawing.Point(215, 12);
             this.chart1.Name = "chart1";
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(765, 370);
+            this.chart1.Size = new System.Drawing.Size(819, 328);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
             this.chart1.Click += new System.EventHandler(this.chart1_Click);
@@ -64,27 +64,26 @@
             this.chart2.ChartAreas.Add(chartArea2);
             legend2.Name = "Legend1";
             this.chart2.Legends.Add(legend2);
-            this.chart2.Location = new System.Drawing.Point(262, 500);
+            this.chart2.Location = new System.Drawing.Point(215, 371);
             this.chart2.Name = "chart2";
             series2.ChartArea = "ChartArea1";
             series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
             series2.Legend = "Legend1";
             series2.Name = "Series1";
             this.chart2.Series.Add(series2);
-            this.chart2.Size = new System.Drawing.Size(765, 370);
+            this.chart2.Size = new System.Drawing.Size(819, 328);
             this.chart2.TabIndex = 1;
             this.chart2.Text = "chart2";
             // 
-            // FrmHome
+            // MockupDiagrams
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1270, 726);
+            this.ClientSize = new System.Drawing.Size(1242, 763);
             this.Controls.Add(this.chart2);
             this.Controls.Add(this.chart1);
-            this.Name = "FrmHome";
-            this.Text = "FrmHome";
-            this.Load += new System.EventHandler(this.FrmHome_Load);
+            this.Name = "MockupDiagrams";
+            this.Text = "MockupDiagrams";
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
             this.ResumeLayout(false);
