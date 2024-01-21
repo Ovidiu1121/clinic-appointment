@@ -34,7 +34,7 @@ namespace ClinicAppointment.forms
             this.pnlaside=new PnlAside(this);
             this.Controls.Add(this.pnlaside);
 
-            this.activepanel=new PnlUpdatePersonalData(this,user);
+            this.activepanel=new PnlAppointmentHistory(this);
            // this.activepanel=new PnlDoctorAppointments(this, user);
             this.Controls.Add(this.activepanel);
 

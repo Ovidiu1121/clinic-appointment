@@ -44,7 +44,6 @@ namespace ClinicAppointment.panels
             this.Controls.Add(this.pnlback);
             this.pnlback.Location=new Point(230, 124);
             this.pnlback.Size=new Size(699, 435);
-           // this.pnlback.BorderStyle=BorderStyle.FixedSingle;
 
             this.lbltitle=new Label();
             this.pnlback.Controls.Add(this.lbltitle);
