@@ -37,7 +37,8 @@ namespace ClinicAppointment
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmMain(doctor));
+            //Application.Run(new FrmMain(doctor));
+            Application.Run(new mockups.MockupDiagrams());
 
         }
 
